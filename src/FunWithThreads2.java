@@ -10,7 +10,7 @@ public class FunWithThreads2 {
                 System.out.println("Thread start: Thread 1");
                 for (int i=0; i<10; i++){
 
-                    if (i==5) continue;
+                    if (i==6) continue;
 
                     System.out.println("Thread 1 " + i);
 
