@@ -4,7 +4,50 @@ public class FunWithThreads2 {
     //Constructor of FunWithThreads
     public FunWithThreads2(){
         System.out.println("MAIN START");
+
+        Thread t1= new Thread(new Runnable() {
+            public void run() {
+                System.out.println("Thread start: Thread 1");
+                for (int i=0; i<10; i++){
+
+                    if (i==5) continue;
+
+                    System.out.println("Thread 1 " + i);
+
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                System.out.println("Thread end:Thread 1");
+            }
+        });
+        t1.start();
         
+        try {
+            Thread.sleep(2100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Thread t2= new Thread(new Runnable(){
+            public void run() {
+                System.out.println("Thread start: Thread 2");
+                for (int i=0; i<10; i++){
+                    System.out.println("Thread 2 " + i);
+
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                System.out.println("Thread end:Thread 2");
+            }
+        });
+        t2.start();
+
         System.out.println("MAIN END");
     }
 
